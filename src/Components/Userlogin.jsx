@@ -18,6 +18,7 @@ import {
 import React from "react";
 import { useState } from "react";
 import { EmailIcon, LockIcon, AtSignIcon } from "@chakra-ui/icons";
+import { Form } from "react-router-dom";
 
 const User = () => {
   //Funcion to set the show button of password tab
@@ -96,96 +97,104 @@ const User = () => {
             </TabList>
             <TabPanels>
               <TabPanel>
-                <Box boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)" p="5">
-                  <Stack spacing={4} align="center">
-                    <InputGroup>
-                      <InputLeftAddon children={<AtSignIcon />} />
-                      <Input placeholder="Enter your Full Name" />
-                    </InputGroup>
+                {/* User SIGN UP form begins  */}
+                <Form action="/usersignup" method="POST">
+                  <Box boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)" p="5">
+                    <Stack spacing={4} align="center">
+                      <InputGroup>
+                        <InputLeftAddon children={<AtSignIcon />} />
+                        <Input placeholder="Enter your Full Name" />
+                      </InputGroup>
 
-                    <InputGroup>
-                      <InputLeftAddon children={<EmailIcon />} />
-                      <Input type="email" placeholder="Enter your Email" />
-                    </InputGroup>
+                      <InputGroup>
+                        <InputLeftAddon children={<EmailIcon />} />
+                        <Input type="email" placeholder="Enter your Email" />
+                      </InputGroup>
 
-                    <InputGroup size="md">
-                      <InputLeftAddon children={<LockIcon />} />
-                      <Input
-                        pr="4.5rem"
-                        type={show ? "text" : "password"}
-                        placeholder="Enter password"
-                        name="password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                      />
-                      <InputRightElement width="4.5rem">
-                        <Button h="1.75rem" size="sm" onClick={handleClick}>
-                          {show ? "Hide" : "Show"}
-                        </Button>
-                      </InputRightElement>
-                    </InputGroup>
-                    <InputGroup size="md">
-                      <InputLeftAddon children={<LockIcon />} />
-                      <Input
-                        pr="4.5rem"
-                        type={show ? "text" : "password"}
-                        placeholder="ReType The Password"
-                        name="password_re"
-                        value={confirmPassword}
-                        onChange={handleConfirmPasswordChange}
-                      />
-                      <InputRightElement width="4.5rem">
-                        <Button h="1.75rem" size="sm" onClick={handleClick}>
-                          {show ? "Hide" : "Show"}
-                        </Button>
-                      </InputRightElement>
-                    </InputGroup>
-                    <Button
-                      colorScheme="teal"
-                      size="md"
-                      w="35%"
-                      onClick={onSignUp}
-                    >
-                      SIGN UP
-                    </Button>
-                  </Stack>
-                  {!isMatch && (
-                    <p style={{ color: "red" }}>Passwords do not match</p>
-                  )}
-                </Box>
+                      <InputGroup size="md">
+                        <InputLeftAddon children={<LockIcon />} />
+                        <Input
+                          pr="4.5rem"
+                          type={show ? "text" : "password"}
+                          placeholder="Enter password"
+                          name="password"
+                          value={password}
+                          onChange={handlePasswordChange}
+                        />
+                        <InputRightElement width="4.5rem">
+                          <Button h="1.75rem" size="sm" onClick={handleClick}>
+                            {show ? "Hide" : "Show"}
+                          </Button>
+                        </InputRightElement>
+                      </InputGroup>
+                      <InputGroup size="md">
+                        <InputLeftAddon children={<LockIcon />} />
+                        <Input
+                          pr="4.5rem"
+                          type={show ? "text" : "password"}
+                          placeholder="ReType The Password"
+                          name="password_re"
+                          value={confirmPassword}
+                          onChange={handleConfirmPasswordChange}
+                        />
+                        <InputRightElement width="4.5rem">
+                          <Button h="1.75rem" size="sm" onClick={handleClick}>
+                            {show ? "Hide" : "Show"}
+                          </Button>
+                        </InputRightElement>
+                      </InputGroup>
+                      <Button
+                        colorScheme="teal"
+                        size="md"
+                        w="35%"
+                        onClick={onSignUp}
+                      >
+                        SIGN UP
+                      </Button>
+                    </Stack>
+                    {!isMatch && (
+                      <p style={{ color: "red" }}>Passwords do not match</p>
+                    )}
+                  </Box>
+                </Form>
+                {/* User Sign up Form Ends */}
               </TabPanel>
               <TabPanel>
-                <Box boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)" p="5">
-                  <Stack spacing={4} align="center">
-                    <InputGroup>
-                      <InputLeftAddon children={<EmailIcon />} />
-                      <Input type="email" placeholder="Enter your Email" />
-                    </InputGroup>
+                {/* User LOGIN form Begins */}
+                <Form action="/userlogin" method="POST">
+                  <Box boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)" p="5">
+                    <Stack spacing={4} align="center">
+                      <InputGroup>
+                        <InputLeftAddon children={<EmailIcon />} />
+                        <Input type="email" placeholder="Enter your Email" />
+                      </InputGroup>
 
-                    <InputGroup size="md">
-                      <InputLeftAddon children={<LockIcon />} />
-                      <Input
-                        pr="4.5rem"
-                        type={show ? "text" : "password"}
-                        placeholder="Enter password"
-                      />
-                      <InputRightElement width="4.5rem">
-                        <Button h="1.75rem" size="sm" onClick={handleClick}>
-                          {show ? "Hide" : "Show"}
-                        </Button>
-                      </InputRightElement>
-                    </InputGroup>
+                      <InputGroup size="md">
+                        <InputLeftAddon children={<LockIcon />} />
+                        <Input
+                          pr="4.5rem"
+                          type={show ? "text" : "password"}
+                          placeholder="Enter password"
+                        />
+                        <InputRightElement width="4.5rem">
+                          <Button h="1.75rem" size="sm" onClick={handleClick}>
+                            {show ? "Hide" : "Show"}
+                          </Button>
+                        </InputRightElement>
+                      </InputGroup>
 
-                    <Button
-                      colorScheme="teal"
-                      size="md"
-                      w="35%"
-                      onClick={onLogin}
-                    >
-                      LOGIN
-                    </Button>
-                  </Stack>
-                </Box>
+                      <Button
+                        colorScheme="teal"
+                        size="md"
+                        w="35%"
+                        onClick={onLogin}
+                      >
+                        LOGIN
+                      </Button>
+                    </Stack>
+                  </Box>
+                </Form>
+                {/* User LOGIN Form Ends here */}
               </TabPanel>
             </TabPanels>
           </Tabs>
