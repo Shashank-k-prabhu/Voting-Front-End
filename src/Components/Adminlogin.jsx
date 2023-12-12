@@ -24,6 +24,7 @@ const Admin = () => {
         </Box>
 
         <Box flex={{ base: "1", md: "0.5" }} maxW="40%" p={5}>
+          
           <Tabs variant="soft-rounded" colorScheme="green">
             <TabList>
               <Tab>Tab 1</Tab>
