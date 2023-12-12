@@ -3,7 +3,7 @@ import { Flex, Box, Image, Heading,Button,} from "@chakra-ui/react";
 const Landing = () => {
   const userLogin = () => {
     setTimeout(() => {
-      window.location.href = "/user";
+      window.location.href = "/user/signup";
     }, );
   }
     const adminLogin = () => {

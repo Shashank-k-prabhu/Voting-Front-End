@@ -31,7 +31,7 @@ import { Link, Outlet } from "react-router-dom";
 //    );
 //  };
 
-const UserLogin = () => {
+const User = () => {
   return (
     <div>
       <Flex
@@ -68,4 +68,4 @@ const UserLogin = () => {
     </div>
   );
 };
-export default UserLogin;
+export default User;

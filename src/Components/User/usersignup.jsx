@@ -38,7 +38,10 @@ const UserSignUp = () => {
     setIsMatch(e.target.value === password);
   };
   //Function to handle sign up tasks
-  const onSignUp = () => {
+  const onSignUp = () => {  
+    setTimeout(() => {
+      window.location.href = "/user";
+    }, 2000);
     toast({
       title: "Signed Up",
       description:
@@ -48,9 +51,6 @@ const UserSignUp = () => {
       isClosable: true,
       position: "top-right",
     });
-    setTimeout(() => {
-      window.location.href = "/user";
-    }, 4000);
   };
   return (
     <Box boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)" p="5">
@@ -98,11 +98,11 @@ const UserSignUp = () => {
               </Button>
             </InputRightElement>
           </InputGroup>
+          {!isMatch && <p style={{ color: "red" }}>Passwords do not match</p>}
           <Button colorScheme="teal" size="md" w="35%" onClick={onSignUp}>
             SIGN UP
           </Button>
         </Stack>
-        {!isMatch && <p style={{ color: "red" }}>Passwords do not match</p>}
       </form>
     </Box>
   );
